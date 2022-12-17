@@ -35,13 +35,18 @@ export const WeatherContextProvider = ({ children }) => {
       weather: [{ icon: "" }],
       main: { temp_max: 0, temp_min: 0 },
     },
+    {
+      dt_txt: "",
+      weather: [{ icon: "" }],
+      main: { temp_max: 0, temp_min: 0 },
+    },
   ];
   const [wheathers, setWheathers] = useState(initialValue);
 
   useEffect(() => {
     let array = []
     axios(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${select}&appid=d4eba4bb3a2cd6ed0bb563ded94832da&cnt=40`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${select}&appid=acae8032fefb59c7222415f88e5dae84&cnt=40`
     ).then((res => {
       let todayHour = res.data.list[0].dt_txt;
       todayHour = todayHour.substring(11, 19);
@@ -88,6 +93,7 @@ export const WeatherContextProvider = ({ children }) => {
     icons,
     temps,
   };
+  console.log(values);
 
   return (
     <WeatherContext.Provider value={values}>

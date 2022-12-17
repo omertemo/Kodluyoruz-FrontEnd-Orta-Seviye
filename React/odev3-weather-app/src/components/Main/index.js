@@ -75,6 +75,8 @@ function Main() {
               <span>{temps[4].temp_min}º</span>
             </div>
           </div>
+         
+         
         </>
       )}
     </div>
